@@ -15,6 +15,7 @@ A hosted [Hugging Face space](https://huggingface.co/spaces/sesame/csm-1b) is al
 * A CUDA-compatible GPU
 * The code has been tested on CUDA 12.4 and 12.6, but it may also work on other versions
 * Similarly, Python 3.10 is recommended, but newer versions may be fine
+* Conda is recommended for package management
 * For some audio operations, `ffmpeg` may be required
 * Access to the following Hugging Face models:
   * [Llama-3.2-1B](https://huggingface.co/meta-llama/Llama-3.2-1B)
@@ -25,9 +26,8 @@ A hosted [Hugging Face space](https://huggingface.co/spaces/sesame/csm-1b) is al
 ```bash
 git clone git@github.com:SesameAILabs/csm.git
 cd csm
-python3.10 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+conda env create -f environment.yml
+conda activate csmenv
 
 # Disable lazy compilation in Mimi
 export NO_TORCH_COMPILE=1
